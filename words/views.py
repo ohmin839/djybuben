@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import SampledWord
 
 def homePageView(request):
-    return HttpResponse("Hello, world!")
+    count = SampledWord.objects.count()
+    return HttpResponse(f"You have {count} words.")
